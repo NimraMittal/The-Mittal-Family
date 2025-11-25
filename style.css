@@ -1,0 +1,83 @@
+body{
+    background: radial-gradient(circle, violet, indigo, navy);
+    padding:
+}
+nav {
+    background: #333;          
+    padding: 1rem 0;           
+    position: fixed;            
+    width: 100%;              
+    top: 0;                    
+    z-index: 1000;              
+}
+
+/* Step 2: Remove bullets and default spacing */
+nav ul {
+    list-style: none;          
+    margin: 0;                  
+    padding: 0;                
+    text-align: center;      
+}
+
+/* Step 3: Make items horizontal */
+nav li {
+    display: inline-block;      
+    margin: 0 2rem;             
+}
+
+/* Step 4: Style the links */
+nav a {
+    color: white;              
+    text-decoration: none;     
+    font-size: 1.1rem;         
+    font-weight: bold;          
+    padding: 0.5rem 1rem;      
+}
+
+/* Step 5: Add hover effect */
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);  
+    border-radius: 5px;                     
+}
+#heading {
+    margin-top: 120px; 
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+#family-photo {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+}
+.family-tree{
+    text-align: center;
+}
+
+.gen1st{
+ display: inline-block;    
+    width: 220px;               
+    margin: 20px;               
+    padding: 20px;              
+    border: 3px  solid bisque; 
+    border-radius: 10px;
+    text-align: center; 
+}
+.gen2nd {
+    display: inline-block;
+    width: 220px;
+    margin: 20px;
+    padding: 20px;
+    border: 3px solid bisque;
+    border-radius: 10px;
+    text-align: center;
+}
+.gen1st:nth-child(1) {
+    margin-left: 520px;
+}
+.gen1st:nth-child(2) {
+    margin-right: 500px;
+}
+.gen2nd:nth-child(4) {
+    margin-right: 300px;
+}
