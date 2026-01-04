@@ -1,83 +1,471 @@
-body{
-    background: radial-gradient(circle, violet, indigo, navy);
-    padding:
+/* ============================================
+   MITTAL FAMILY WEBSITE - COMPLETE CSS
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a0066 0%, #4a0e8f 50%, #7b2cbf 100%);
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
 nav {
-    background: #333;          
-    padding: 1rem 0;           
-    position: fixed;            
-    width: 100%;              
-    top: 0;                    
-    z-index: 1000;              
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Step 2: Remove bullets and default spacing */
 nav ul {
-    list-style: none;          
-    margin: 0;                  
-    padding: 0;                
-    text-align: center;      
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
 }
 
-/* Step 3: Make items horizontal */
 nav li {
-    display: inline-block;      
-    margin: 0 2rem;             
+    margin: 0;
 }
 
-/* Step 4: Style the links */
 nav a {
-    color: white;              
-    text-decoration: none;     
-    font-size: 1.1rem;         
-    font-weight: bold;          
-    padding: 0.5rem 1rem;      
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-/* Step 5: Add hover effect */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
 nav a:hover {
-    background: rgba(255, 255, 255, 0.2);  
-    border-radius: 5px;                     
+    background: rgba(255, 255, 255, 0.15);
 }
+
+nav a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ============================================
+   MAIN HEADING
+   ============================================ */
 #heading {
-    margin-top: 120px; 
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: 120px;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
     color: white;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    animation: fadeInDown 1s ease;
 }
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   FAMILY PHOTO SECTION
+   ============================================ */
 #family-photo {
     text-align: center;
-    padding: 4rem 2rem;
-    margin: 2rem 0;
-}
-.family-tree{
-    text-align: center;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    animation: fadeInUp 1s ease 0.3s backwards;
 }
 
-.gen1st{
- display: inline-block;    
-    width: 220px;               
-    margin: 20px;               
-    padding: 20px;              
-    border: 3px  solid bisque; 
-    border-radius: 10px;
-    text-align: center; 
+#family-photo img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.gen2nd {
-    display: inline-block;
+
+#family-photo img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   FAMILY TREE CONTAINER - FLEXBOX LAYOUT
+   ============================================ */
+.family-tree {
+    max-width: 1600px;
+    margin: 5rem auto;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+/* Generation Rows */
+.generation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* ============================================
+   MEMBER CARDS - ALL GENERATIONS
+   ============================================ */
+.gen1st,
+.gen2nd,
+.gen3rd {
     width: 220px;
-    margin: 20px;
-    padding: 20px;
-    border: 3px solid bisque;
-    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
     text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
-.gen1st:nth-child(1) {
-    margin-left: 520px;
+
+/* Shimmer Effect on Hover */
+.gen1st::before,
+.gen2nd::before,
+.gen3rd::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
 }
-.gen1st:nth-child(2) {
-    margin-right: 500px;
+
+.gen1st:hover::before,
+.gen2nd:hover::before,
+.gen3rd:hover::before {
+    left: 100%;
 }
-.gen2nd:nth-child(4) {
-    margin-right: 300px;
+
+/* Hover Effects */
+.gen1st:hover,
+.gen2nd:hover,
+.gen3rd:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Images Inside Cards */
+.gen1st img,
+.gen2nd img,
+.gen3rd img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    display: block;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gen1st:hover img,
+.gen2nd:hover img,
+.gen3rd:hover img {
+    transform: scale(1.1) rotate(5deg);
+    border-color: white;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Names */
+.gen1st h3,
+.gen2nd h3,
+.gen3rd h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   GENERATION SPECIFIC STYLES
+   ============================================ */
+
+/* Generation 1 - Grandparents (Gold) */
+.gen1st {
+    border-color: rgba(255, 215, 0, 0.6);
+    background: rgba(255, 215, 0, 0.08);
+}
+
+.gen1st:hover {
+    border-color: gold;
+    background: rgba(255, 215, 0, 0.18);
+}
+
+.gen1st img {
+    border-color: gold;
+}
+
+/* Generation 2 - Parents (Blue) */
+.gen2nd {
+    border-color: rgba(100, 200, 255, 0.6);
+    background: rgba(100, 200, 255, 0.08);
+}
+
+.gen2nd:hover {
+    border-color: #64c8ff;
+    background: rgba(100, 200, 255, 0.18);
+}
+
+.gen2nd img {
+    border-color: #64c8ff;
+}
+
+/* Generation 3 - Children (Pink) */
+.gen3rd {
+    border-color: rgba(255, 100, 255, 0.6);
+    background: rgba(255, 100, 255, 0.08);
+}
+
+.gen3rd:hover {
+    border-color: #ff64ff;
+    background: rgba(255, 100, 255, 0.18);
+}
+
+.gen3rd img {
+    border-color: #ff64ff;
+}
+
+/* ============================================
+   LAYOUT STRUCTURE WITH WRAPPER DIVS
+   ============================================ */
+
+/* If you wrap generations in divs, use this: */
+.gen1-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.gen2-row {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    width: 100%;
+}
+
+.couple {
+    display: flex;
+    gap: 2rem;
+}
+
+.gen3-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .gen1st,
+    .gen2nd,
+    .gen3rd {
+        width: 200px;
+    }
+    
+    .gen2-row {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigation */
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    nav a {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    /* Heading */
+    #heading {
+        font-size: 2.5rem;
+        margin-top: 180px;
+    }
+    
+    /* Family Photo */
+    #family-photo {
+        margin: 2rem auto;
+    }
+    
+    #family-photo img {
+        max-width: 100%;
+    }
+    
+    /* Family Tree - Stack vertically on mobile */
+    .family-tree {
+        padding: 2rem 1rem;
+        margin: 2rem auto;
+        gap: 3rem;
+    }
+    
+    .gen1-row,
+    .gen2-row,
+    .gen3-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .couple {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .gen1st,
+    .gen2nd,
+    .gen3rd {
+        width: 280px;
+    }
+    
+    .gen1st img,
+    .gen2nd img,
+    .gen3rd img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .gen1st h3,
+    .gen2nd h3,
+    .gen3rd h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #heading {
+        font-size: 2rem;
+    }
+    
+    .gen1st,
+    .gen2nd,
+    .gen3rd {
+        width: 240px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .gen1st img,
+    .gen2nd img,
+    .gen3rd img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gen1st h3,
+    .gen2nd h3,
+    .gen3rd h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================
+   SMOOTH SCROLLING
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+::selection {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+/* ============================================
+   LOADING ANIMATION
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease;
 }
